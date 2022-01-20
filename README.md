@@ -18,7 +18,7 @@ ansible-role-caddy
 </a>
 </p>
 
-This role installs `add description here`.
+This role installs [Caddy (Fast, multi-platform web server with automatic HTTPS)](caddyserver.com/docs/install).
 
 Requirements
 ------------
@@ -38,7 +38,7 @@ A description of the settable variables for this role should go here, including 
 
 ```yaml
 ---
-add variables here
+# no variables
 ```
 
 Dependencies
@@ -55,6 +55,15 @@ Including an example of how to use your role (for instance, with variables passe
 
 ```yaml
 - hosts: servers
+  user: unprivelaged
+  roles:
+    - role: iancleary.caddy
+      become: true
+```
+
+```yaml
+- hosts: servers
+  user: root
   roles:
     - role: iancleary.caddy
 ```
