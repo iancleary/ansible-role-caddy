@@ -1,1 +1,30 @@
 ---
+- name: Caddy - install apt package dependencies
+  ansible.builtin.apt:
+    name:
+      - debian-keyring 
+      - debian-archive-keyring
+      - apt-transport-https
+    state: present
+
+- name: Caddy - Add Caddy's official GPG Key
+  ansible.builtin.apt_key:
+    url: https://dl.cloudsmith.io/public/caddy/stable/gpg.key
+    state: present
+
+- name: Caddy - Setup Stable Repository (deb)
+  ansible.builtin.apt_repository:
+    repo: >-
+      deb https://dl.cloudsmith.io/public/caddy/stable/deb/debian any-version main
+    filename: caddy-stable.list
+
+- name: Caddy - Setup Stable Repository (deb-src)
+  ansible.builtin.apt_repository:
+    repo: >-
+      deb-src https://dl.cloudsmith.io/public/caddy/stable/deb/debian any-version main
+    filename: caddy-stable.list
+
+- name: Caddy - install Docker - 20.04 (Ubuntu)
+  ansible.builtin.apt:
+    name: caddy
+    update_cache: "yes"
