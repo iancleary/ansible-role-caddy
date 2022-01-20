@@ -24,7 +24,7 @@
       deb-src https://dl.cloudsmith.io/public/caddy/stable/deb/debian any-version main
     filename: caddy-stable.list
 
-- name: Caddy - install Docker - 20.04 (Ubuntu)
+- name: Caddy - install Caddy via apt
   ansible.builtin.apt:
     name: caddy
     update_cache: "yes"
