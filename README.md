@@ -1,24 +1,24 @@
-ansible-role-template
+ansible-role-caddy
 =========
 
 <p align="center">
 
-<a href="https://github.com/iancleary/ansible-role-template/actions?query=workflow%3Aci" target="_blank">
-    <img src="https://github.com/iancleary/ansible-role-template/workflows/CI/badge.svg" alt="CI workflow status">
+<a href="https://github.com/iancleary/ansible-role-caddy/actions?query=workflow%3Aci" target="_blank">
+    <img src="https://github.com/iancleary/ansible-role-caddy/workflows/CI/badge.svg" alt="CI workflow status">
 </a>
 
-<a href="https://github.com/iancleary/ansible-role-template/actions?query=workflow%3Arelease" target="_blank">
-    <img src="https://github.com/iancleary/ansible-role-template/workflows/Release/badge.svg" alt="Release workflow status">
+<a href="https://github.com/iancleary/ansible-role-caddy/actions?query=workflow%3Arelease" target="_blank">
+    <img src="https://github.com/iancleary/ansible-role-caddy/workflows/Release/badge.svg" alt="Release workflow status">
 </a>
-<a href="https://galaxy.ansible.com/iancleary/template" target="_blank">
-    <img src="https://img.shields.io/badge/ansible--galaxy-iancleary.template-blue.svg" alt="Ansible Galaxy">
+<a href="https://galaxy.ansible.com/iancleary/caddy" target="_blank">
+    <img src="https://img.shields.io/badge/ansible--galaxy-iancleary.caddy-blue.svg" alt="Ansible Galaxy">
 </a>
-<a href="https://raw.githubusercontent.com/iancleary/ansible-role-template/main/LICENSE" target="_blank">
+<a href="https://raw.githubusercontent.com/iancleary/ansible-role-caddy/main/LICENSE" target="_blank">
     <img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="License">
 </a>
 </p>
 
-This role installs `add description here`.
+This role installs [Caddy (Fast, multi-platform web server with automatic HTTPS)](caddyserver.com/docs/install).
 
 Requirements
 ------------
@@ -27,9 +27,7 @@ Any pre-requisites that may not be covered by Ansible itself or the role should 
 
 Supported and Tested `ansible_os_families`:
 
-* Ubuntu 18.04
 * Ubuntu 20.04
-* Fedora 34
 
 > Pull Requests welcome!
 
@@ -40,7 +38,7 @@ A description of the settable variables for this role should go here, including 
 
 ```yaml
 ---
-add variables here
+# no variables
 ```
 
 Dependencies
@@ -57,9 +55,17 @@ Including an example of how to use your role (for instance, with variables passe
 
 ```yaml
 - hosts: servers
+  user: unprivelaged
   roles:
-    - role: iancleary.template
-      variable: add_them_here
+    - role: iancleary.caddy
+      become: true
+```
+
+```yaml
+- hosts: servers
+  user: root
+  roles:
+    - role: iancleary.caddy
 ```
 
 License
@@ -70,6 +76,6 @@ License
 Author Information
 ------------------
 
-This role was created in 2021 by [Ian Cleary](https://blog.iancleary.me).
+This role was created in 2022 by [Ian Cleary](https://iancleary.me).
 
 Inspiration for the structure of this repo came from [Jeff Geerling](https://github.com/geerlingguy/ansible-role-nginx).

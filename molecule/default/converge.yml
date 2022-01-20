@@ -13,5 +13,4 @@
         variables: if_needed_only
 
   roles:
-    - role: iancleary.template
-      variable: add_them_here
+    - role: iancleary.caddy
