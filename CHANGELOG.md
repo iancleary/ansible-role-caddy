@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.2.0]
+
+- Ubuntu 22.04 support via [#2](https://github.com/iancleary/ansible-role-caddy/pull/2)
+
 ## [0.1.0]
 
 ### Added
